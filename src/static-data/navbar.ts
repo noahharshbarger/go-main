@@ -43,6 +43,12 @@ export const navbarData: NavbarItem[] = [
       },
       {
         id: crypto.randomUUID(),
+        title: "Solar Calculator",
+        href: "/solar-calculator",
+        external: false
+      },
+      {
+        id: crypto.randomUUID(),
         title: "Support",
         href: "/support",
         external: false
