@@ -75,3 +75,4 @@ will get back to you ASAP.
 **May 2024 v1.3**
 
 - Fixed Sanity Revalidation issue
+# Solar
