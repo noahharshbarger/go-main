@@ -51,6 +51,7 @@ const solarCalculatorBasic = () => {
                 </label>
                 <input
                     type='number' 
+                    step='0.01'
                     value ={inputs.electricityRate} 
                     onChange={(e) = handleInputChange('electricityRate', e.target.value)} 
                     className='w-full px-3 py-2 border border-gray-300 rounded md focus:outline-none focus: ring-2 focus: ring-blue-500 text-black'
@@ -59,6 +60,9 @@ const solarCalculatorBasic = () => {
                         Average U.S. electricity rate is $0.12/kWh.
                     </p>
             </div>
+            <button 
+                className='w-full bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-3 rounded-lg transition duration-200'
+                onClick={() => alert("Calculation logic coming soon!")}>Calculate Solar Savings</button>
         </div>
     );
 

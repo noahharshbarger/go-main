@@ -49,6 +49,12 @@ export const navbarData: NavbarItem[] = [
       },
       {
         id: crypto.randomUUID(),
+        title: "Teaching Curriculum",
+        href: "/teaching",
+        external: false
+      },
+      {
+        id: crypto.randomUUID(),
         title: "Support",
         href: "/support",
         external: false
