@@ -40,7 +40,7 @@ const solarCalculatorBasic = () => {
                     value ={inputs.homeSize} 
                     onChange={(e) = handleInputChange('homeSize', e.target.value)} 
                     className='w-full px-3 py-2 border border-gray-300 rounded md focus:outline-none focus: ring-2 focus: ring-blue-500 text-black'
-                    placeholder='Enter your monthly bill'/>
+                    placeholder='Enter your Roof Size'/>
                     <p className='text-xs text-gray-500 mt-1'>
                         Average U.S. household roof is 1,500-2,000 sq ft.
                     </p>
@@ -54,7 +54,7 @@ const solarCalculatorBasic = () => {
                     value ={inputs.electricityRate} 
                     onChange={(e) = handleInputChange('electricityRate', e.target.value)} 
                     className='w-full px-3 py-2 border border-gray-300 rounded md focus:outline-none focus: ring-2 focus: ring-blue-500 text-black'
-                    placeholder='Enter your monthly bill'/>
+                    placeholder='Enter your Electricity Rate'/>
                     <p className='text-xs text-gray-500 mt-1'>
                         Average U.S. electricity rate is $0.12/kWh.
                     </p>
