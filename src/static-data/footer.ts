@@ -2,19 +2,19 @@ import { FooterLink } from "@/types/footer";
 
 export const footerLinks: FooterLink[] = [
   {
-    id: crypto.randomUUID(),
+    id: "footer-home",
     title: "Home",
     href: "/",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-products",
     title: "Products",
     href: "/",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-careers",
     title: "Careers",
     href: "/",
     external: false,
@@ -23,7 +23,7 @@ export const footerLinks: FooterLink[] = [
     }
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-pricing",
     title: "Pricing",
     href: "/",
     external: false
@@ -32,25 +32,25 @@ export const footerLinks: FooterLink[] = [
 
 export const footerLinksTwo: FooterLink[] = [
   {
-    id: crypto.randomUUID(),
+    id: "footer-company",
     title: "Company",
     href: "/",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-press",
     title: "Press Media",
     href: "/",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-blog",
     title: "Our Blog",
     href: "/blog",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "footer-account",
     title: "Account",
     href: "/auth/signin",
     external: false

@@ -5,17 +5,17 @@ import TabPanel from "./TabPanel";
 
 const tabButtons = [
   {
-    id: crypto.randomUUID(),
+    id: "tab-about-us",
     title: "About Us",
     value: "about"
   },
   {
-    id: crypto.randomUUID(),
+    id: "tab-mission",
     title: "Our Mission",
     value: "mission"
   },
   {
-    id: crypto.randomUUID(),
+    id: "tab-vision",
     title: "Our Vision",
     value: "vision"
   }

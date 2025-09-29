@@ -2,83 +2,83 @@ import { NavbarItem } from "@/types/navbar";
 
 export const navbarData: NavbarItem[] = [
   {
-    id: crypto.randomUUID(),
+    id: "nav-features",
     title: "Features",
     href: "#features",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "nav-about",
     title: "About",
-    href: "#about",
+    href: "#about",  
     external: false
   },
   {
-    id: crypto.randomUUID(),
-    title: "Portfolio",
+    id: "nav-portfolio",
+    title: "Portfolio", 
     href: "#portfolio",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "nav-pricing",
     title: "Pricing",
     href: "#pricing",
     external: false
   },
   {
-    id: crypto.randomUUID(),
+    id: "nav-pages",
     title: "Pages",
     submenu: [
       {
-        id: crypto.randomUUID(),
+        id: "nav-home",
         title: "Home",
         href: "/",
         external: false
       },
       {
-        id: crypto.randomUUID(),
-        title: "Docs",
+        id: "nav-docs",
+        title: "Docs", 
         href: "/docs",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-solar-calculator",
         title: "Solar Calculator",
         href: "/solar-calculator",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-teaching",
         title: "Teaching Curriculum",
         href: "/teaching",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-support",
         title: "Support",
         href: "/support",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-blog",
         title: "Blog",
         href: "/blog",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-signin",
         title: "Sign in",
         href: "/auth/signin",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-signup",
         title: "Sign up",
         href: "/auth/signup",
         external: false
       },
       {
-        id: crypto.randomUUID(),
+        id: "nav-error",
         title: "Error 404",
         href: "/error",
         external: false
