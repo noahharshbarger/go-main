@@ -1,3 +1,4 @@
+
 import SolarCalculator from "@/components/SolarCalculator";
 
 export const metadata = {

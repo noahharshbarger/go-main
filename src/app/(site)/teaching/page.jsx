@@ -7,6 +7,7 @@ import Session1 from "@/sections/Session1-BasicForm";
 import Session2 from "@/sections/Session2-CoreLogic";
 import Session3 from "@/sections/Session3-EnhancedUX";
 import Session4 from "@/sections/Session4-Advanced";
+import Session5 from "@/sections/Session5-NextJS";
 
 export default function TeachingPage() {
   const [activeSession, setActiveSession] = useState(1);
@@ -43,6 +44,14 @@ export default function TeachingPage() {
       description: "Framer Motion animations, modal system, and advanced interactions",
       component: Session4,
       concepts: ["Animation libraries", "Modal patterns", "Advanced interactions", "Accessibility", "Performance optimization"]
+    },
+    {
+      id: 5,
+      title: "Session 5: Next.js Fundamentals",
+      duration: "45 minutes",
+      description: "Next.js App Router, Server/Client components, optimization, and routing",
+      component: Session5,
+      concepts: ["App Router", "Server vs Client Components", "File-based routing", "Image optimization", "Navigation", "use client directive"]
     }
   ];
 
