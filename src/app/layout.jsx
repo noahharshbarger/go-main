@@ -1,15 +1,24 @@
 import '../styles/globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
+import Image from 'next/image'
 
+// Next.js Font Optimization
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
 })
 
+// Next.js Metadata API
 export const metadata = {
-  title: 'Solar Panel Analysis System',
+  title: 'Solar Parts Analysis System',
   description: 'Comprehensive analysis of solar components including manufacturing origin, part weights, and financing options',
+  keywords: 'solar panels, inverters, domestic manufacturing, clean energy',
+  openGraph: {
+    title: 'Solar Parts Analysis System',
+    description: 'Compare domestic vs foreign solar components',
+    type: 'website',
+  }
 }
 
 export default function RootLayout({ children }) {
