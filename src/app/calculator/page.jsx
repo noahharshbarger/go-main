@@ -83,7 +83,24 @@ export default function Calculator() {
   const [filterType, setFilterType] = useState('all')
   const [filterOrigin, setFilterOrigin] = useState('all')
   const [isLoading, setIsLoading] = useState(true)
+  const [showAddForm, setShowAddForm] = useState(false)
+  const [parts, setParts] = useState(solarParts)
+
   const router = useRouter()
+
+  // Teaching: Form state management for adding new parts
+  const [newPart, setNewPart] = useState({
+    id: '',
+    name: '',
+    brand: '',
+    partType: 'Solar Panel',
+    price: '',
+    domestic: true,
+    weight: '',
+    manufacturer: '',
+    efficiency: '',
+    warranty: ''
+  })
 
   // Simulate data loading with useEffect
   useEffect(() => {
@@ -93,7 +110,54 @@ export default function Calculator() {
     return () => clearTimeout(timer)
   }, [])
 
-  const filteredParts = solarParts.filter(part => {
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target
+    setNewPart(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }))
+  }
+
+  const handleAddPart = (e) => {
+    e.preventDefault()
+
+    // Basic validation
+    if (!newPart.name || !newPart.brand || !newPart.price || !newPart.id) {
+      alert('Please fill in all required fields')
+      return
+    }
+
+    if (parts.some(part => part.id === newPart.id)) {
+      alert('Part ID already exists. Please use a unique ID.')
+      return 
+    }
+
+    const partToAdd = {
+      ...newPart,
+      price: parseFloat(newPart.price),
+      weight: parseFloat(newPart.weight) || 0
+    }
+
+    setParts(prev => [...prev, partToAdd])
+
+    setNewPart({
+      id: '',
+      name: '',
+      brand: '',
+      partType: 'Solar Panel',
+      price: '',
+      domestic: true,
+      weight: '',
+      manufacturer: '',
+      efficiency: '',
+      warranty: ''
+    })
+
+    setShowAddForm(false)
+    alert('Part added successfully!')
+  }
+
+  const filteredParts = parts.filter(part => {
     const matchesSearch = part.name.toLowerCase().includes(searchTerm.toLowerCase())
                           || part.brand.toLowerCase().includes(searchTerm.toLowerCase())
                           || part.id.toLowerCase().includes(searchTerm.toLowerCase())
@@ -106,7 +170,7 @@ export default function Calculator() {
     return matchesSearch && matchesType && matchesOrigin
   })
 
-    // Loading state
+    // Loading state  
     if (isLoading) {
       return (
         <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
@@ -165,6 +229,7 @@ export default function Calculator() {
                           <option value="Solar Panel">Solar Panel</option>
                           <option value="Inverter">Inverter</option>
                           <option value="Battery">Battery</option>
+                          <option value="Microinverter">Microinverter</option>
                         </select>
                 </div>
                 <div>
@@ -182,10 +247,187 @@ export default function Calculator() {
                     </select>
               </div>
             </div>
+
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => setShowAddForm(!showAddForm)}
+                className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                >
+                  {showAddForm ? 'Cancel' : 'Add New Part'}
+                </button>
+            </div>
           </div>
+
+          {showAddForm && (
+            <div className="bg-blue-100 rounded-xl shadow-xl p-8 border-2 border-blue-300 mb-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">Add New Part</h3>
+              <form onSubmit={handleAddPart} className="space-y-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Part ID *
+                    </label>
+                    <input
+                      type="text"
+                      name="id"
+                      value={newPart.id}
+                      onChange={handleInputChange}
+                      placeholder="e.g., SPW-450-D"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Part Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={newPart.name}
+                        onChange={handleInputChange}
+                        placeholder="e.g., SunPower Maxeon 3 500W"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Brand *
+                      </label>
+                      <input
+                        type="text"
+                        name="brand"
+                        value={newPart.brand}
+                        onChange={handleInputChange}
+                        placeholder="e.g., SunPower"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                        />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Part Type *
+                        </label>
+                        <select
+                          name="partType"
+                          value={newPart.partType}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="Solar Panel">Solar Panel</option>
+                            <option value="Inverter">Inverter</option>
+                            <option value="Battery">Battery</option>
+                            <option value="Microinverter">Microinverter</option>
+                          </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Price ($) *
+                      </label>
+                      <input
+                        type="number"
+                        name="price"
+                        value={newPart.price}
+                        onChange={handleInputChange}
+                        placeholder='299'
+                        min="0"
+                        step="0.01"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                        />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Weight (lbs)
+                      </label>
+                      <input
+                        type="number"
+                        name="weight"
+                        value={newPart.weight}
+                        onChange={handleInputChange}
+                        placeholder="e.g. 40.0 lbs"
+                        min="0"
+                        step="0.1"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Manufacturer Location
+                      </label>
+                      <input
+                        type="text"
+                        name="manufacturerLocation"
+                        value={newPart.manufacturerLocation}
+                        onChange={handleInputChange}
+                        placeholder="e.g. San Jose, CA"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Efficiency (%)
+                      </label>
+                      <input
+                        type="text"
+                        name="efficiency"
+                        value={newPart.efficiency}
+                        onChange={handleInputChange}
+                        placeholder="e.g. 22.5%"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        </div>
+                        <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Warranty
+                          </label>
+                          <input
+                            type="text"
+                            name="warranty"
+                            value={newPart.warranty}
+                            onChange={handleInputChange}
+                            placeholder="e.g. 25 years"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        </div>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="isActive"
+                    checked={newPart.domestic}
+                    onChange={handleInputChange}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    />
+                    <label className="ml-2 block text-sm text-gray-700">
+                      Manufactured Domestically
+                    </label>
+                </div>
+                <div className="flex gap-4 items-center">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200"
+                  >
+                    Add Part
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddForm(false)}
+                    className="inline-flex items-center bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200"
+                    >
+                      Cancel
+                    </button>
+                </div>
+              </form>
+              </div>
+          )}
+          
+
           <div className="mb-6">
             <p className="text-gray-600">
-              Showing {filteredParts.length} of {solarParts.length} Parts
+              Showing {filteredParts.length} of {parts.length} Parts
               {searchTerm && ` matching "${searchTerm}"`}
             </p>
           </div>
@@ -257,38 +499,3 @@ export default function Calculator() {
       </main>
     )
     }
-
-  //         {/* Summary Stats */}
-  //         {filteredParts.length > 0 && (
-  //           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-  //             <h2 className="text-xl font-bold mb-4">Selection Summary</h2>
-  //             <div className="grid md:grid-cols-4 gap-4 text-center">
-  //               <div>
-  //                 <div className="text-2xl font-bold text-blue-600">{filteredParts.length}</div>
-  //                 <p className="text-sm text-gray-600">Total Parts</p>
-  //               </div>
-  //               <div>
-  //                 <div className="text-2xl font-bold text-green-600">
-  //                   {filteredParts.filter(p => p.domestic).length}
-  //                 </div>
-  //                 <p className="text-sm text-gray-600">Domestic</p>
-  //               </div>
-  //               <div>
-  //                 <div className="text-2xl font-bold text-red-600">
-  //                   {filteredParts.filter(p => !p.domestic).length}
-  //                 </div>
-  //                 <p className="text-sm text-gray-600">Foreign</p>
-  //               </div>
-  //               <div>
-  //                 <div className="text-2xl font-bold text-purple-600">
-  //                   ${filteredParts.length > 0 ? Math.round(filteredParts.reduce((sum, p) => sum + p.price, 0) / filteredParts.length).toLocaleString() : 0}
-  //                 </div>
-  //                 <p className="text-sm text-gray-600">Avg Price</p>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         )}
-  //       </div>
-  //     </main>
-  //   )
-  // }

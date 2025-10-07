@@ -47,6 +47,9 @@ export default function RootLayout({ children }) {
                 <Link href="/compare" className="text-gray-600 hover:text-blue-600 font-medium">
                   Financing Compare
                 </Link>
+                <Link href="/appointments" className="text-gray-600 hover:text-blue-600 font-medium">
+                  Schedule
+                </Link>
               </nav>
             </div>
           </div>
