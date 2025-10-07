@@ -348,7 +348,7 @@ export default function AppointmentScheduler() {
             
             {/* Today's Appointments */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-              <h3 className="text-xl font-bold mb-4">Today's Appointments</h3>
+              <h3 className="text-xl font-bold mb-4">Today&apos;s Appointments</h3>
               {todaysAppointments.length === 0 ? (
                 <p className="text-gray-500 text-center py-4">No appointments today</p>
               ) : (
