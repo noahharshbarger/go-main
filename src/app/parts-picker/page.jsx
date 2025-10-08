@@ -78,7 +78,7 @@ const solarParts = [
   }
 ]
 
-export default function Calculator() {
+export default function PartsPicker() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filterType, setFilterType] = useState('all')
   const [filterOrigin, setFilterOrigin] = useState('all')
@@ -188,10 +188,26 @@ export default function Calculator() {
       <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
         <div className="container mx-auto px-4 py-16">
           <nav className="mb-8">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              <span>➡️</span>
-              <span className="text-gray-900 font-medium">Parts Calculator</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <Link href="/" className="hover:text-blue-600">Home</Link>
+                <span>➡️</span>
+                <span className="text-gray-900 font-medium">Parts Picker</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Link 
+                  href="/appointments" 
+                  className="text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  📅 Appointments
+                </Link>
+                <Link
+                  href="/api-demo"
+                  className="text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    API Demo
+                  </Link>
+              </div>
             </div>
           </nav>
           <div className="rounded-xl shadow-lg p-6 border border-gray-100">

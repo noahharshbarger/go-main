@@ -42,9 +42,9 @@ export const navbarData: NavbarItem[] = [
         external: false
       },
       {
-        id: "nav-solar-calculator",
-        title: "Solar Calculator",
-        href: "/solar-calculator",
+        id: "nav-solar-parts-picker",
+        title: "Solar Parts Picker",
+        href: "/solar-parts-picker",
         external: false
       },
       {

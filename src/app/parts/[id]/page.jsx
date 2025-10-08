@@ -103,7 +103,7 @@ export default function PartDetail({ params }) {
                     <div className="flex items-center space-x-2 text-sm text-gray-600">
                         <Link href="/" className="hover:text-blue-600">Home</Link>
                         <span>➡️</span>
-                        <Link href="/calculator" className="hover:text-blue-600">Calculator</Link>
+                        <Link href="/parts-picker" className="hover:text-blue-600">Parts Picker</Link>
                         <span>➡️</span>
                         <span className="text-gray-900 font-medium">{part.name}</span>
                     </div>
@@ -184,7 +184,7 @@ export default function PartDetail({ params }) {
                             </div>
                             <div className="mt-8 pt-8 border-t border-gray-200 flex gap-4">
                                 <Link
-                                    href="/calculator"
+                                    href="/parts-picker"
                                     className="bg-gray-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-600 transition-colors"
                                     >
                                         ⬅️ Back to Search

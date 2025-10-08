@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
                 <Link href="/" className="text-gray-600 hover:text-blue-600 font-medium">
                   Home
                 </Link>
-                <Link href="/calculator" className="text-gray-600 hover:text-blue-600 font-medium">
+                <Link href="/parts-picker" className="text-gray-600 hover:text-blue-600 font-medium">
                   Parts Picker
                 </Link>
                 <Link href="/compare" className="text-gray-600 hover:text-blue-600 font-medium">
