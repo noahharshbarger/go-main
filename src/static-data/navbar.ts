@@ -68,13 +68,13 @@ export const navbarData: NavbarItem[] = [
       {
         id: "nav-signin",
         title: "Sign in",
-        href: "/auth/signin",
+        href: "/sign-in",
         external: false
       },
       {
         id: "nav-signup",
         title: "Sign up",
-        href: "/auth/signup",
+        href: "/sign-up",
         external: false
       },
       {

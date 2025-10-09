@@ -129,6 +129,43 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Teaching Demos Section */}
+        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 mb-12">
+          <h2 className="text-2xl font-bold text-center mb-6">🎓 Teaching Demos</h2>
+          <p className="text-center text-gray-600 mb-8">
+            Interactive examples demonstrating modern web development concepts
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link 
+              href="/api-demo"
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+            >
+              <div className="text-3xl mb-3">🔗</div>
+              <h3 className="font-semibold mb-2">API Integration</h3>
+              <p className="text-sm text-gray-600">Learn how to fetch and display data from APIs</p>
+            </Link>
+            
+            <Link 
+              href="/data-flow-demo"
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+            >
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="font-semibold mb-2">Data Flow</h3>
+              <p className="text-sm text-gray-600">See how data moves from backend to frontend</p>
+            </Link>
+            
+            <Link 
+              href="/sign-in"
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+            >
+              <div className="text-3xl mb-3">🔐</div>
+              <h3 className="font-semibold mb-2">Form Handling</h3>
+              <p className="text-sm text-gray-600">Build forms with validation and user feedback</p>
+            </Link>
+          </div>
+        </div>
+
         <div className="bg-gray-50 rounded-xl shadow-md p-10 border border-gray-200">
           <h2 className="text-3xl font-semibold text-center mb-6">
             Data Structure (JSON)

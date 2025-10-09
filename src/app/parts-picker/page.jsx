@@ -225,7 +225,7 @@ export default function PartsPicker() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Search Parts
                   </label>
-                  <input
+                  <Form.Control
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
