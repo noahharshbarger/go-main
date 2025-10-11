@@ -1,0 +1,7 @@
+// vercel.json
+{
+  "rewrites": [{ "source": "/old-route", "destination": "/new-route" }]
+}
+// .env
+NEXT_PUBLIC_API_URL=https://api.example.com
+// Explanation: Vercel uses these files for configuration and environment variables.
