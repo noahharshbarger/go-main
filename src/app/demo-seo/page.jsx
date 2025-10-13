@@ -5,9 +5,9 @@ export default function SEOExample() {
   return (
     <>
       <Head>
-        <title>About Us | My Next.js App</title>
-        <meta name="description" content="Learn more about our team and mission." />
-        <meta property="og:title" content="About Us | My Next.js App" />
+        <title>Unified Construction and Restoration (UCR)</title>
+        <meta name="description" content="Explore how you can achieve solar financial independence with UCR." />
+        <meta property="og:title" content="About Us | UCR" />
         <meta property="og:description" content="Learn more about our team and mission." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourdomain.com/demo-seo" />
